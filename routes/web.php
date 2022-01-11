@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\checkAge;
+use App\Models\Brand;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.master_home');
+    $brands = Brand::all();
+    return view('welcome',compact('brands'));
 });
 
 
@@ -33,3 +40,21 @@ Route::get('/email/verify', function () {
 
 //Logout
 Route::get('/user/logout',[UserController::class, 'Logout'])->name('user.logout');
+
+
+// ---------->Brand<----------
+
+//All Brand
+Route::get('/brand/all',[BrandController::class, 'allBrand'])->name('all.brand');
+
+//Brand Add
+Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('add.brand');
+
+//Brand Edit
+Route::get('brand/edit/{id}', [BrandController::class, 'editBrand']);
+
+//Brand Update
+Route::post('/brand/update/{id}', [BrandController::class, 'updateBrand']);
+
+//Brand Delete
+Route::get('/brand/delete/{id}',[BrandController::class, 'deleteBrand']);
