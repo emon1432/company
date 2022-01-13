@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\welcomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\checkAge;
 use App\Models\Brand;
 use App\Models\User;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -58,3 +60,27 @@ Route::post('/brand/update/{id}', [BrandController::class, 'updateBrand']);
 
 //Brand Delete
 Route::get('/brand/delete/{id}',[BrandController::class, 'deleteBrand']);
+
+// ----------> Home Slider <----------
+
+//All Sliders
+Route::get('/home/slider',[welcomeController::class, 'homeSlider'])->name('home.slider');
+
+//Add slider view
+Route::get('/slider/add', function(){
+    return view('admin.homeSlider.addSlider');
+})->name('slider.add');
+
+//Slider Add
+Route::post('/slider/add', [welcomeController::class, 'addSlider'])->name('add.slider');
+
+//Slider Edit
+Route::get('slider/edit/{id}', [welcomeController::class, 'editSlider']);
+
+//Slider Update
+Route::post('/slider/update/{id}', [welcomeController::class, 'updateSlider']);
+
+//Slider Delete
+Route::get('/slider/delete/{id}',[welcomeController::class, 'deleteSlider']);
+
+

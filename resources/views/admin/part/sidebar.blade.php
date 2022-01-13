@@ -40,6 +40,11 @@
                                     <span class="nav-text">All Brands</span>
                                 </a>
                             </li>
+                            <li >
+                                <a class="sidenav-item-link" href="{{route('home.slider')}}">
+                                    <span class="nav-text">Home Slider</span>
+                                </a>
+                            </li>
 
                             
                             <!-- <li>

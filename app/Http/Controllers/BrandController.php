@@ -19,7 +19,7 @@ class BrandController extends Controller
 
     public function allBrand()
     {
-        $brands = Brand::all();
+        $brands = Brand::latest()->paginate(3);
         return view('admin.brand.brandList', compact('brands'));
     }
 
