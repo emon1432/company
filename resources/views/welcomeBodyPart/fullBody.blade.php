@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Company</title>
-    <meta content="" name="descriptison">
+    <meta content="" name="description">
     <meta content="" name="keywords">
 
 
@@ -44,8 +44,7 @@
     <!-- Header -->
     @include('welcomeBodyPart.header')
 
-    <!-- Slider -->
-    @include('welcomeBodyPart.slider')
+  
 
     <!-- Main -->
     @yield('main_body')

@@ -1,7 +1,7 @@
 @extends('welcomeBodyPart.fullBody')
 @section('main_body')
 
-
+@include('welcomeBodyPart.slider')
 <!-- Main  -->
 <main id="main">
 

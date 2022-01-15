@@ -24,8 +24,18 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     $brands = Brand::all();
-    return view('welcome',compact('brands'));
-});
+    return view('welcome', compact('brands'));
+})->name('welcome');
+
+// Contact 
+Route::get('contact/us', function () {
+    return view('welcomeSinglePart.contact');
+})->name('contact.us');
+
+// Contact 
+Route::get('about/us', function () {
+    return view('welcomeSinglePart.about');
+})->name('about.us');
 
 
 //Admin index
@@ -41,13 +51,13 @@ Route::get('/email/verify', function () {
 
 
 //Logout
-Route::get('/user/logout',[UserController::class, 'Logout'])->name('user.logout');
+Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout');
 
 
 // ---------->Brand<----------
 
 //All Brand
-Route::get('/brand/all',[BrandController::class, 'allBrand'])->name('all.brand');
+Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 
 //Brand Add
 Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('add.brand');
@@ -59,15 +69,15 @@ Route::get('brand/edit/{id}', [BrandController::class, 'editBrand']);
 Route::post('/brand/update/{id}', [BrandController::class, 'updateBrand']);
 
 //Brand Delete
-Route::get('/brand/delete/{id}',[BrandController::class, 'deleteBrand']);
+Route::get('/brand/delete/{id}', [BrandController::class, 'deleteBrand']);
 
 // ----------> Home Slider <----------
 
 //All Sliders
-Route::get('/home/slider',[welcomeController::class, 'homeSlider'])->name('home.slider');
+Route::get('/home/slider', [welcomeController::class, 'homeSlider'])->name('home.slider');
 
 //Add slider view
-Route::get('/slider/add', function(){
+Route::get('/slider/add', function () {
     return view('admin.homeSlider.addSlider');
 })->name('slider.add');
 
@@ -81,6 +91,4 @@ Route::get('slider/edit/{id}', [welcomeController::class, 'editSlider']);
 Route::post('/slider/update/{id}', [welcomeController::class, 'updateSlider']);
 
 //Slider Delete
-Route::get('/slider/delete/{id}',[welcomeController::class, 'deleteSlider']);
-
-
+Route::get('/slider/delete/{id}', [welcomeController::class, 'deleteSlider']);

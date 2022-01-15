@@ -2,17 +2,17 @@
 <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="index.html"><span>Com</span>pany</a></h1>
+            <h1 class="logo mr-auto"><a href="{{route('welcome')}}"><span>Com</span>pany</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo mr-auto"><img src="{{ asset('') }} frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="{{route('welcome')}}">Home</a></li>
 
                     <li class="drop-down"><a href="">About</a>
                         <ul>
-                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="{{route('about.us')}}">About Us</a></li>
                             <li><a href="team.html">Team</a></li>
                             <li><a href="testimonials.html">Testimonials</a></li>
                             <li class="drop-down"><a href="#">Deep Drop Down</a>
@@ -31,7 +31,7 @@
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="{{route('contact.us')}}">Contact</a></li>
 
                 </ul>
             </nav><!-- .nav-menu -->
