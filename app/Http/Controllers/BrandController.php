@@ -49,9 +49,13 @@ class BrandController extends Controller
             'brand_image' => $final_image_name,
             'created_at' => Carbon::now()
         ]);
+        $notification = array(
+            'message' => 'Brand Inserted Successfully',
+            'alert-type' => 'success'
+        );
 
 
-        return Redirect()->back()->with('success', 'Brand Inserted Successfull');
+        return Redirect()->back()->with($notification);
     }
 
     public function editBrand($id)
@@ -94,7 +98,11 @@ class BrandController extends Controller
                 'brand_name' => $request->brand_name,
             ]);
         }
-        return Redirect()->back()->with('success', 'Brand Updated Successfully');
+        $notification = array(
+            'message' => 'Brand Update Successfully',
+            'alert-type' => 'info'
+        );
+        return Redirect()->back()->with($notification);
     }
 
     public function deleteBrand($id){
@@ -104,7 +112,11 @@ class BrandController extends Controller
         unlink($old_image);
 
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success', 'Brand Deleted Successfully');
+        $notification = array(
+            'message' => 'Brand Deleted Successfully',
+            'alert-type' => 'warning'
+        );
+        return Redirect()->back()->with($notification);
 
     }
 }
